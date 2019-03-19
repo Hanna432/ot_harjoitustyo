@@ -2,7 +2,7 @@ commit a8e1612ec60fad297f05bc99daa9a39e1e421dd3
 Author: hanna <hanna.nylund@helsinki.fi>
 Date:   Tue Mar 19 15:50:40 2019 +0200
 
-    radera file1, file2 -> file22
+    radera file14, file2 -> file22
 
  tiedostoja/file1  | 0
  tiedostoja/file22 | 0
