@@ -19,3 +19,7 @@
 ## Dokumentaatio
 
 [vaatimusmäärittely.md](https://github.com/Hanna432/ot_harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
+
+## Työaikakirjanpito
+
+[työaikakirjanpito.md](https://github.com/Hanna432/ot_harjoitustyo/blob/master/dokumentaatio/tyoaikakirjanpito.md)
