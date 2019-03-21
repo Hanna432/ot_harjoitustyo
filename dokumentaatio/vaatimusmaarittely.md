@@ -8,7 +8,7 @@ rekisteröityä niin että tulokset voidaan tallentaa.
 
 ## Käyttöliittymäluonnos
 
-
+![kuva](https://github.com/Hanna432/ot_harjoitustyo/blob/master/kuvat/sovelluskuva.jpg)
 
 ## Perusversion toiminnallisuus
 
