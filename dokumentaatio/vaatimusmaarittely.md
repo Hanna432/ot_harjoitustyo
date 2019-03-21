@@ -8,7 +8,7 @@ rekisteröityä niin että tulokset voidaan tallentaa.
 
 ## Käyttöliittymäluonnos
 
-![image](/home/hanna/bilder/sovelluskuva.png)
+
 
 ## Perusversion toiminnallisuus
 
@@ -23,8 +23,8 @@ rekisteröityä niin että tulokset voidaan tallentaa.
 * käyttäjä voi pelata pelin
   * peli pelataan niin että näytössä näkee yksi luku kerrallaan lyhyistä 
 numerosarjasta ja pelaajan tehtävä on sitten toistaa numerosarjan. Sen 
-jälkeen sama numerosarja esintyy taas näytössa luku kerralaan mutta nyt
-sarja loppuun on ilmestynyt uusi luku. Näin sarja tulee koko ajan pitempi. 
+jälkeen sama numerosarja esintyy taas näytössa luku kerrallaan mutta nyt
+sarjan loppuun on ilmestynyt uusi luku. Näin sarja tulee koko ajan pitempi. 
 Peli loppuu kun pelaaja painaa väärä numeroa.
 * käyttäjä voi nähdä tilastoja
   * oma paras tulos

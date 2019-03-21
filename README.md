@@ -15,3 +15,7 @@
 [Unicafe](https://github.com/Hanna432/ot_harjoitustyo/tree/master/laskarit/viikko2/Unicafe)
 
 [testikattavuus.png](https://github.com/Hanna432/ot_harjoitustyo/blob/master/laskarit/viikko2/testikattavuus.png)
+
+## Dokumentaatio
+
+[vaatimusmäärittely.md](https://github.com/Hanna432/ot_harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
