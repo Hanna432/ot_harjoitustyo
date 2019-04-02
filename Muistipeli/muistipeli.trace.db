@@ -1,0 +1,21 @@
+2019-04-02 12:46:17 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MUISTIPELI" not found; SQL statement:
+SELECT * FROM Muistipeli WHERE username = ? [42102-199]
+2019-04-02 12:49:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "MUISTIPELI" not found; SQL statement:
+SELECT * FROM Muistipeli WHERE username = ? [42102-199]
+2019-04-02 13:04:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER" not found; SQL statement:
+SELECT * FROM User WHERE username = ? [42102-199]
+2019-04-02 13:24:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER" not found; SQL statement:
+SELECT * FROM User WHERE username = ? [42102-199]
+2019-04-02 13:24:51 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER" not found; SQL statement:
+INSERT INTO User (username) VALUES (?) [42102-199]
+2019-04-02 13:29:23 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER" not found; SQL statement:
+SELECT * FROM User WHERE username = ? [42102-199]
+2019-04-02 13:29:23 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USER" not found; SQL statement:
+INSERT INTO User (username) VALUES (?) [42102-199]
