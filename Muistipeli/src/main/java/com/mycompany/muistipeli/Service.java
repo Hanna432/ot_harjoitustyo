@@ -6,6 +6,8 @@
 package com.mycompany.muistipeli;
 
 import java.sql.SQLException;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
 /**
  *
@@ -24,6 +26,10 @@ public class Service {
         
         return false;
     }
+    
+    public void deleteProfile(String username) {
+        userDao.delete(username);
+    }
 
     public boolean logIn(String username) {
         User user = userDao.read(username);
@@ -37,6 +43,11 @@ public class Service {
     
     public User getLoggedIn() {
         return loggedIn;
+    }
+    
+    public void playGame(Label number, TextField answerField) {
+        Game game = new Game(number, answerField);
+        int result = game.play();
     }
     
 }

@@ -49,4 +49,15 @@ public class UserDao {
         }
         return null;
     }
+    
+    public void delete(String u) {
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:sqlite:muistipeli.db", "sa", "");
+            PreparedStatement statement = connection.prepareStatement("DELETE FROM User WHERE username = ?");
+            statement.setString(1, u);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("Database failure " + e.getMessage());
+        }
+    }
 }

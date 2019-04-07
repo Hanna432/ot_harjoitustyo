@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+import com.mycompany.muistipeli.Service;
 import com.mycompany.muistipeli.User;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -19,15 +20,49 @@ import static org.junit.Assert.*;
 public class MuistipeliTest {
     
     User user;
+    Service service;
     
     @Before
     public void setUp() {
         user = new User("Liisa");
+        service = new Service();
+        service.createProfile("testUser");
+    }
+    
+    @After
+    public void tearDown() {
+        service.deleteProfile("testUser2");
     }
     
     @Test
-    public void testi() {
+    public void userClassTest() {
         assertEquals("Liisa", user.getUsername());
+    }
+    
+    @Test
+    public void createProfileWhenUsernameAlreadyExists() {
+        assertEquals(false, service.createProfile("testUser"));
+    }
+    
+    @Test
+    public void createProfileWhenUsernameDoNotExist() {
+        assertEquals(true, service.createProfile("testUser2"));
+    }
+    
+    @Test
+    public void logInWhenUsernameExists() {
+        assertEquals(true, service.logIn("testUser"));
+    }
+    
+    @Test
+    public void logInWhenUsernameDoNotExist() {
+        assertEquals(false, service.logIn("testUser3"));
+    }
+    
+    @Test
+    public void getLoggedInReturnsLoggedIn() {
+        service.logIn("testUser");
+        assertEquals("testUser", service.getLoggedIn().getUsername());
     }
 
     
