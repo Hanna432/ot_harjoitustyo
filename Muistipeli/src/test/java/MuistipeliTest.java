@@ -4,8 +4,8 @@
  * and open the template in the editor.
  */
 
-import com.mycompany.muistipeli.Service;
-import com.mycompany.muistipeli.User;
+import muistipeli.domain.Service;
+import muistipeli.domain.User;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

@@ -3,11 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.muistipeli;
+package muistipeli.domain;
 
 import java.util.Random;
-import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
 import javafx.animation.AnimationTimer;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -40,7 +38,8 @@ public class Game {
             
             showNumbers(n);
             
-            if (!checkNumberSeries(n)) {
+            String answer = saveAnswer(answerField, n);
+            if (!checkNumberSeries(n, answer)) {
                 int result = 0;
                 if (n > 3) {
                     result = n;
@@ -51,6 +50,10 @@ public class Game {
         }
         
         return 20;
+    }
+    
+    public int getNumber(int i) {
+        return numbers[i];
     }
     
     public void showNumbers(int n) {
@@ -72,15 +75,36 @@ public class Game {
         }
     }
     
-    public boolean checkNumberSeries(int n) {
-        while (answerField.getText() == null) {
-                
-        }
-        while (answerField.getText().length() != numbers.length) {
-
-        }
-
+    public String saveAnswer(TextField answerfield, int n) {
+//        boolean ready = false;
+//        while (!ready) {
+//            AnimationTimer timer = new AnimationTimer() {
+//                int index = 0;
+//                long lastUpdate = 0;
+//                boolean ready = false;
+//                @Override
+//                public void handle(long now) {
+//                    if (now - lastUpdate >= 800_000_000) {
+//                        if (answerfield.getText() != null) {
+//                            ready = true;
+//                        }
+//                        lastUpdate = now;
+//                    }
+//                }
+//            };
+//        }
+        
         String answer = answerField.getText();
+        while (true) {
+            answer = answerField.getText();
+            if (answer.length() == n) {
+                break;
+            }
+        }
+        return answer;
+    }
+    
+    public boolean checkNumberSeries(int n, String answer) {
         String[] pieces = answer.split("");
         for (int i = 0; i < n; i++) {
             if (Integer.valueOf(pieces[i]) != numbers[i]) {

@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.muistipeli;
+package muistipeli.dao;
 
 /**
  *
  * @author hanna
  */
+import muistipeli.domain.User;
 import java.sql.*;
 import java.util.ArrayList;
 

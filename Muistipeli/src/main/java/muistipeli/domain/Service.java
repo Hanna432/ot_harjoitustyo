@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.muistipeli;
+package muistipeli.domain;
 
+import muistipeli.dao.UserDao;
 import java.sql.SQLException;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -48,6 +49,10 @@ public class Service {
     public void playGame(Label number, TextField answerField) {
         Game game = new Game(number, answerField);
         int result = game.play();
+    }
+    
+    public void saveResult(int result) {
+        
     }
     
 }

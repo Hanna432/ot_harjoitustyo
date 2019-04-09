@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.muistipeli;
+package muistipeli.ui;
 
 /**
  *
  * @author hanna
  */
+import muistipeli.domain.Game;
+import muistipeli.domain.Service;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -31,7 +33,8 @@ public class UI extends Application {
     @Override
     public void start(Stage window) {
         Service service = new Service();
-//        Label test = new Label("testi");
+        Game game;
+        
         TextField username = new TextField();
         Button logIn = new Button("Log in");
         Button register = new Button("Register");
@@ -65,15 +68,19 @@ public class UI extends Application {
 //        timer.start();
         Button logOut = new Button("Log out");
         Button play = new Button("Play");
+        Label result = new Label("");
         
+        VBox menu = new VBox();
+        menu.setPadding(new Insets(10, 10, 10, 10));
         
-        Label number = new Label("");
-        TextField answerField = new TextField("");
-        BorderPane componentsGame = new BorderPane();
-        componentsGame.setPadding(new Insets(30,30,30,30));
-        componentsGame.setCenter(number);
-        componentsGame.setBottom(answerField);
-        Scene sceneGame = new Scene(componentsGame);
+        BorderPane componentsIn = new BorderPane();
+        componentsIn.setPadding(new Insets(10, 10, 10, 10));
+        componentsIn.setTop(result);
+        componentsIn.setCenter(play);
+        componentsIn.setRight(menu);
+
+        Scene in = new Scene(componentsIn);
+        
         
         
         
@@ -85,7 +92,7 @@ public class UI extends Application {
         registerReg.setOnAction((event) -> {
             if (service.createProfile(usernameReg.getText())) {
                  window.setScene(home);
-            }else{
+            } else {
                 usernameReg.setText("Username already exists");
             }
         });
@@ -95,17 +102,8 @@ public class UI extends Application {
                 
                 Label usernameIn = new Label(service.getLoggedIn().getUsername());
 
-                VBox menu = new VBox();
-                menu.setPadding(new Insets(10,10,10,10));
                 menu.getChildren().add(usernameIn);
                 menu.getChildren().add(logOut);
-
-                BorderPane componentsIn = new BorderPane();
-                componentsIn.setPadding(new Insets(10,10,10,10));
-                componentsIn.setCenter(play);
-                componentsIn.setRight(menu);
-
-                Scene in = new Scene(componentsIn);
                 
                 window.setScene(in);
             } else {
@@ -114,30 +112,11 @@ public class UI extends Application {
         });
         
         play.setOnAction((event) -> {
-//            new Timer(1000,window.setScene(sceneGame)).start();
-            window.setScene(sceneGame);
-//            try {
-//                wait(1000);
-//            }catch(Exception e) {
-//                
-//            }
-            service.playGame(number, answerField);
-
-
-//         int[] numbers = new int[20];
-//   
-//            
-//            while (answerField.getText() == null) {
-//                
-//            }
-//            while (answerField.getText().length() != numbers.length) {
-//                
-//            }
-            
-        
-
-
+            GameScene gameScene = new GameScene(service, window, in, result);
+            window.setScene(gameScene.getScene());
+            gameScene.play();
         });
+        
         
         
         window.setScene(home);
