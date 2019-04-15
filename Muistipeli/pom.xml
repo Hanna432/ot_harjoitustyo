@@ -72,7 +72,50 @@
                 <artifactId>maven-jxr-plugin</artifactId>
                 <version>2.5</version>
               </plugin>
-              
+              <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>1.6</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>muistipeli.ui.UI</mainClass>
+                                </transformer>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+    <artifactId>maven-assembly-plugin</artifactId>
+    <executions>
+      <execution>
+        <phase>package</phase>
+        <goals>
+          <goal>single</goal>
+        </goals>
+      </execution>
+    </executions>
+    <configuration>
+      <archive>
+        <manifest>
+          <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+          <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+          <addClasspath>true</addClasspath>
+          <mainClass>muistipeli.ui.UI</mainClass>
+        </manifest>
+      </archive>
+      <descriptorRefs>
+        <descriptorRef>jar-with-dependencies</descriptorRef>
+      </descriptorRefs>
+    </configuration>
+  </plugin>
         </plugins>
     </build>
     

@@ -46,13 +46,19 @@ public class Service {
         return loggedIn;
     }
     
-    public void playGame(Label number, TextField answerField) {
-        Game game = new Game(number, answerField);
-        int result = game.play();
+    public void saveResult(int result) {
+        if (result > loggedIn.getHighScore()) {
+            userDao.updateHighScore(loggedIn.getUsername(), result);
+            loggedIn.setHighScore(result);
+        }
     }
     
-    public void saveResult(int result) {
-        
+    public int getAvarageHighScore() {
+        return userDao.getAvarageHighScore();
+    }
+    
+    public void logOut() {
+        loggedIn = null;
     }
     
 }

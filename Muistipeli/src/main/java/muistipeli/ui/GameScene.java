@@ -31,13 +31,17 @@ public class GameScene {
     private Stage window;
     private Scene in;
     private Label result;
+    private Label highScore;
+    private Label avarage;
     
-    public GameScene(Service service, Stage window, Scene in, Label result) {
-        this.game = new Game(number, answerField);
+    public GameScene(Service service, Stage window, Scene in, Label result, Label highScore, Label avarage) {
+        this.game = new Game();
         this.service = service;
         this.window = window;
         this.in = in;
         this.result = result;
+        this.highScore = highScore;
+        this.avarage = avarage;
     }
 
     public Scene getScene() {
@@ -84,8 +88,10 @@ public class GameScene {
                     r = n - 1;
                 }
                 service.saveResult(r);
-                window.setScene(in);
                 result.setText("Score: " + r);
+                highScore.setText("Highscore: " + service.getLoggedIn().getHighScore());
+                avarage.setText("In avarage players' \n  highscore is: " + service.getAvarageHighScore());
+                window.setScene(in);
             } else {
                 n++;
                 play();

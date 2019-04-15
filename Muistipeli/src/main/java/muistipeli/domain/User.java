@@ -11,13 +11,23 @@ package muistipeli.domain;
  */
 public class User {
     private String username;
+    private int highScore;
     
-    public User(String u) {
+    public User(String u, int h) {
         this.username = u;
+        this.highScore = h;
     }
     
     public String getUsername() {
         return username;
+    }
+    
+    public int getHighScore() {
+        return highScore;
+    }
+    
+    public void setHighScore(int h) {
+        highScore = h;
     }
     
 }
