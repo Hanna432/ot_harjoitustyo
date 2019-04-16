@@ -20,7 +20,7 @@ Sovelluksen avulla käyttäjä voi testata lähimuistinsa yrittämällä muistaa
 
 Testit suoritetaan komennolla
 
-  mvn test
+  `mvn test`
 
 Testikattavuusraportti luodaan komennolla
 
