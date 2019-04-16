@@ -6,4 +6,7 @@ päivä | aika | mitä tein
 3.4 | 5 | pelin toteutus
 7.4 | 2 | testaus, checkstyle
 9.4 | 6 | pelin toteutus, checkstyle, luokkakaavio
-yht | 25 | 
+11.4 | 5 | tulosten tallentaminen, testaus, jarin generointi
+15.4 | 1 | jarin generointi
+16.4 | 2 | jarin generointi, release
+yht | 33 | 
