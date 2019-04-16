@@ -20,17 +20,17 @@ Sovelluksen avulla käyttäjä voi testata lähimuistinsa yrittämällä muistaa
 
 Testit suoritetaan komennolla
 
-  `mvn test`
+`mvn test`
 
 Testikattavuusraportti luodaan komennolla
 
-  mvn jacoco:report
+`mvn jacoco:report`
 
 ### Jarin generointi
 
 Jar-tiedosto generoidaan komennolla
 
-  mvn package
+`mvn package`
 
 Suoritettava jar-tiedosto löytyy hakemistista target nimellä Muistipeli-1.0-SNAPSHOT.jar
 
@@ -38,6 +38,6 @@ Suoritettava jar-tiedosto löytyy hakemistista target nimellä Muistipeli-1.0-SN
 
 Checkstyleraportti luodaan komennolla
 
-  mvn jxr:jxr checkstyle:checkstyle
+`mvn jxr:jxr checkstyle:checkstyle`
 
 ja sen voi tarkastella avaamalla selaimella tiedosto target/site/checkstyle.html
