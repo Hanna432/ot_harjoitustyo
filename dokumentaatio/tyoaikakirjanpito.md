@@ -9,4 +9,5 @@ päivä | aika | mitä tein
 11.4 | 5 | tulosten tallentaminen, testaus, jarin generointi
 15.4 | 1 | jarin generointi
 16.4 | 2 | jarin generointi, release
-yht | 33 | 
+23.4 | 6 | salasana lisätty, koodikatselmointi, javaDoc
+yht | 39 | 

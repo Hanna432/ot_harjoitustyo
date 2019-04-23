@@ -62,16 +62,27 @@ public class GameScene {
 
             AnimationTimer timer = new AnimationTimer() {
                 int index = 0;
+                int updateIndex = 0;
                 long lastUpdate = 0;
                 int m = n;
 
                 @Override
                 public void handle(long now) {
-                    if (now - lastUpdate >= 800_000_000) {
+                    if (now - lastUpdate >= 50_000_000) {
                         if (index < m) {
-                            number.setText(game.getNumber(index) + "");
-                            index++;
+                            if (updateIndex % 16 == 0) {
+                                number.setText(game.getNumber(index) + "");
+                                answerField.setText("");
+                            }
+                            if (updateIndex % 16 == 15) {
+                                number.setText("");
+                                index++;
+                            }
+                            updateIndex++;
                             lastUpdate = now;
+                        } else if (index == m) {
+                            number.setText("");
+                            index++;
                         }
                     }
                 }
@@ -87,10 +98,13 @@ public class GameScene {
                 if (n > 3) {
                     r = n - 1;
                 }
-                service.saveResult(r);
+                
+                if (service.getLoggedIn() != null) {
+                    service.saveResult(r);
+                    highScore.setText("Highscore: " + service.getLoggedIn().getHighScore());
+                    avarage.setText("In avarage players' \n  highscore is: " + service.getAvarageHighScore());
+                }
                 result.setText("Score: " + r);
-                highScore.setText("Highscore: " + service.getLoggedIn().getHighScore());
-                avarage.setText("In avarage players' \n  highscore is: " + service.getAvarageHighScore());
                 window.setScene(in);
             } else {
                 n++;

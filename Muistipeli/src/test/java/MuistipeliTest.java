@@ -26,9 +26,9 @@ public class MuistipeliTest {
     
     @Before
     public void setUp() {
-        user = new User("Liisa", 5);
+        user = new User("Liisa", "l", 5);
         service = new Service();
-        service.createProfile("testUser");
+        service.createProfile("testUser", "p");
     }
     
     @After
@@ -48,33 +48,38 @@ public class MuistipeliTest {
     
     @Test
     public void createProfileWhenUsernameAlreadyExists() {
-        assertEquals(false, service.createProfile("testUser"));
+        assertEquals(false, service.createProfile("testUser", "p"));
     }
     
     @Test
     public void createProfileWhenUsernameDoNotExist() {
-        assertEquals(true, service.createProfile("testUser2"));
+        assertEquals(true, service.createProfile("testUser2", "p2"));
     }
     
     @Test
-    public void logInWhenUsernameExists() {
-        assertEquals(true, service.logIn("testUser"));
+    public void logInWhenUsernameExistsAndPasswordRight() {
+        assertEquals(true, service.logIn("testUser", "p"));
+    }
+    
+    @Test
+    public void logInWhenUsernameExistsAndPasswordWrong() {
+        assertEquals(false, service.logIn("testUser", "p2"));
     }
     
     @Test
     public void logInWhenUsernameDoNotExist() {
-        assertEquals(false, service.logIn("testUser3"));
+        assertEquals(false, service.logIn("testUser3", "p"));
     }
     
     @Test
     public void getLoggedInReturnsLoggedIn() {
-        service.logIn("testUser");
+        service.logIn("testUser", "p");
         assertEquals("testUser", service.getLoggedIn().getUsername());
     }
     
     @Test
     public void logOutSetsLoggedInToNull() {
-        service.logIn("Liisa");
+        service.logIn("Liisa", "l");
         service.logOut();
         assertEquals(null, service.getLoggedIn());
     }

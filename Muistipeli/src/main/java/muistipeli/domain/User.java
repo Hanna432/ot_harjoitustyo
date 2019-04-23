@@ -11,15 +11,21 @@ package muistipeli.domain;
  */
 public class User {
     private String username;
+    private String password;
     private int highScore;
     
-    public User(String u, int h) {
+    public User(String u, String p, int h) {
         this.username = u;
+        this.password = p;
         this.highScore = h;
     }
     
     public String getUsername() {
         return username;
+    }
+    
+    public String getPassword() {
+        return password;
     }
     
     public int getHighScore() {

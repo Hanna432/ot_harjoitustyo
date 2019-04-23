@@ -30,6 +30,9 @@ public class Game {
     }        
     
     public boolean checkNumberSeries(int n, String answer) {
+        if (answer.equals("")) {
+            return false;
+        }
         String[] pieces = answer.split("");
         for (int i = 0; i < n; i++) {
             if (Integer.valueOf(pieces[i]) != numbers[i]) {

@@ -16,12 +16,13 @@ import java.util.ArrayList;
 public class UserDao {
     
     
-    public void create(String u) {
+    public void create(String u, String p) {
         try {
             Connection connection = DriverManager.getConnection("jdbc:sqlite:muistipeli.db", "sa", "");
-            PreparedStatement statement = connection.prepareStatement("INSERT INTO User (username, highScore) VALUES (?, ?)");
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO User (username, password, highScore) VALUES (?, ?, ?)");
             statement.setString(1, u);
-            statement.setInt(2, 0);
+            statement.setString(2, p);
+            statement.setInt(3, 0);
             statement.executeUpdate();
             connection.close();
         } catch (SQLException e) {
@@ -39,7 +40,7 @@ public class UserDao {
             ResultSet rs = statement.executeQuery();
 
             while (rs.next()) {
-                list.add(new User(rs.getString("username"), rs.getInt("highScore")));
+                list.add(new User(rs.getString("username"), rs.getString("password"), rs.getInt("highScore")));
             }
 
             if (list.isEmpty()) {

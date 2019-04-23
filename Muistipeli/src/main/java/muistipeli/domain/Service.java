@@ -19,9 +19,18 @@ public class Service {
     private UserDao userDao = new UserDao();
     private User loggedIn;
 
-    public boolean createProfile(String username) {
+    /**
+    * Metodi tarkistaa ensin että onko käyttäjätunnus jo olemassa.
+    * Jos ei, niin luodaan uusi käyttäjäprofiili.
+    *
+    * @param   username   käyttäjätunnus
+    * @param   password   salasana
+    * 
+    * @return true jos käyttäjä luotiin onnistuneesti, muuten false
+    */
+    public boolean createProfile(String username, String password) {
         if (userDao.read(username) == null) {
-            userDao.create(username);
+            userDao.create(username, password);
             return true;
         }
         
@@ -32,9 +41,9 @@ public class Service {
         userDao.delete(username);
     }
 
-    public boolean logIn(String username) {
+    public boolean logIn(String username, String password) {
         User user = userDao.read(username);
-        if (user != null) {
+        if (user != null && password.equals(user.getPassword())) {
             loggedIn = user;
             return true;
         }

@@ -22,6 +22,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.layout.BorderPane;
 
 public class UI extends Application {
@@ -30,24 +31,52 @@ public class UI extends Application {
     public void start(Stage window) {
         Service service = new Service();
 
+        Label usernameLabel = new Label("Username");
+        Label passwordLabel = new Label("Password");
         TextField username = new TextField();
+        PasswordField password = new PasswordField();
         Button logIn = new Button("Log in");
+        Button playAsGuest = new Button("Play as a guest");
         Button register = new Button("Register");
+        
+        VBox componentsUsername = new VBox();
+        componentsUsername.getChildren().add(usernameLabel);
+        componentsUsername.getChildren().add(username);
+        
+        VBox componentsPassword = new VBox();
+        componentsPassword.getChildren().add(passwordLabel);
+        componentsPassword.getChildren().add(password);
 
         VBox components = new VBox();
+        components.setPadding(new Insets(10, 10, 10, 10));
         components.setSpacing(20);
-        components.getChildren().add(username);
+        components.getChildren().add(componentsUsername);
+        components.getChildren().add(componentsPassword);
         components.getChildren().add(logIn);
+        components.getChildren().add(playAsGuest);
         components.getChildren().add(register);
 
         Scene home = new Scene(components);
+        
 
+        Label usernameRegLabel = new Label("Username");
+        Label passwordRegLabel = new Label("Password");
         TextField usernameReg = new TextField();
+        PasswordField passwordReg = new PasswordField();
         Button registerReg = new Button("Register");
+        
+        VBox componentsUsernameReg = new VBox();
+        componentsUsernameReg.getChildren().add(usernameRegLabel);
+        componentsUsernameReg.getChildren().add(usernameReg);
+        
+        VBox componentsPasswordReg = new VBox();
+        componentsPasswordReg.getChildren().add(passwordRegLabel);
+        componentsPasswordReg.getChildren().add(passwordReg);
 
         VBox componentsReg = new VBox();
         componentsReg.setSpacing(20);
-        componentsReg.getChildren().add(usernameReg);
+        componentsReg.getChildren().add(componentsUsernameReg);
+        componentsReg.getChildren().add(componentsPasswordReg);
         componentsReg.getChildren().add(registerReg);
 
         Scene reg = new Scene(componentsReg);
@@ -85,7 +114,7 @@ public class UI extends Application {
         });
 
         registerReg.setOnAction((event) -> {
-            if (service.createProfile(usernameReg.getText())) {
+            if (service.createProfile(usernameReg.getText(), passwordReg.getText())) {
                 window.setScene(home);
             } else {
                 usernameReg.setText("Username already exists");
@@ -93,7 +122,7 @@ public class UI extends Application {
         });
 
         logIn.setOnAction((event) -> {
-            if (service.logIn(username.getText())) {
+            if (service.logIn(username.getText(), password.getText())) {
 
                 usernameIn.setText("Username: " + service.getLoggedIn().getUsername());
                 highScore.setText("Highscore: " + service.getLoggedIn().getHighScore());
@@ -103,6 +132,13 @@ public class UI extends Application {
             } else {
                 username.setText("wrong username");
             }
+        });
+        
+        playAsGuest.setOnAction((event) -> {
+            usernameIn.setText("");
+            highScore.setText("");
+            avarage.setText("In avarage players' \n  highscore is: " + service.getAvarageHighScore());
+            window.setScene(in);
         });
 
         play.setOnAction((event) -> {
@@ -114,6 +150,8 @@ public class UI extends Application {
         logOut.setOnAction((event) -> {
             service.logOut();
             username.setText("");
+            password.setText("");
+            result.setText("");
             window.setScene(home);
         });
 
@@ -131,7 +169,7 @@ public class UI extends Application {
 
         try (Connection conn = DriverManager.getConnection("jdbc:sqlite:muistipeli.db")) {
 //            conn.prepareStatement("DROP TABLE IF EXISTS User;").executeUpdate();
-            conn.prepareStatement("CREATE TABLE IF NOT EXISTS User (username VARCHAR(30) PRIMARY KEY, highScore INTEGER);")
+            conn.prepareStatement("CREATE TABLE IF NOT EXISTS User (username VARCHAR(30) PRIMARY KEY, password VARCHAR(20), highScore INTEGER);")
                     .executeUpdate();
         } catch (SQLException e) {
             System.out.println("problem with making the database " + e.getMessage());
