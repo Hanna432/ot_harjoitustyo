@@ -15,7 +15,14 @@ import java.util.ArrayList;
 
 public class UserDao {
     
-    
+    /**
+    * Metodi muodostaa yhteyden tietokantaan ja lisää sinne uuden rivin
+    * , eli uuden käyttäjän, parametrina annetuilla tiedoilla.
+    *
+    * @param   u   käyttäjätunnus
+    * @param   p   salasana
+    * 
+    */
     public void create(String u, String p) {
         try {
             Connection connection = DriverManager.getConnection("jdbc:sqlite:muistipeli.db", "sa", "");
@@ -30,6 +37,14 @@ public class UserDao {
         }
     }
     
+    /**
+    * Metodi muodostaa yhteyden tietokantaan ja hakee sieltä rivin
+    * jossa käyttäjätunnus on sama kuin parametrina annettu tunnus.
+    *
+    * @param   u   käyttäjätunnus
+    * 
+    * @return löydetystä rivistä muodostettu käyttäjä
+    */
     public User read(String u) {
         ArrayList<User> list = new ArrayList<>();
         
@@ -56,6 +71,13 @@ public class UserDao {
         return null;
     }
     
+    /**
+    * Metodi muodostaa yhteyden tietokantaan ja poistaa rivin
+    * jossa käyttäjätunnus on sama kuin parametrina annettu tunnus.
+    *
+    * @param   u   käyttäjätunnus
+    * 
+    */
     public void delete(String u) {
         try {
             Connection connection = DriverManager.getConnection("jdbc:sqlite:muistipeli.db", "sa", "");
@@ -68,6 +90,15 @@ public class UserDao {
         }
     }
     
+    /**
+    * Metodi muodostaa yhteyden tietokantaan ja päivittää rivin
+    * jossa käyttäjätunnus on sama kuin parametrina annettu tunnus 
+    * parametrina annetulla tiedolla
+    *
+    * @param   u   käyttäjätunnus
+    * @param   h   highscore
+    * 
+    */
     public void updateHighScore(String u, int h) {
         try {
             Connection connection = DriverManager.getConnection("jdbc:sqlite:muistipeli.db", "sa", "");
@@ -81,6 +112,12 @@ public class UserDao {
         }
     }
     
+    /**
+    * Metodi muodostaa yhteyden tietokantaan ja hakee sieltä kaikkien käyttäjien 
+    * tuloksien keskiarvo.
+    * 
+    * @return löydetty keskiarvo
+    */
     public int getAvarageHighScore() {
         try {
             Connection connection = DriverManager.getConnection("jdbc:sqlite:muistipeli.db", "sa", "");

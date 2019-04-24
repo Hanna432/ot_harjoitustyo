@@ -6,14 +6,15 @@
 package muistipeli.domain;
 
 import java.util.Random;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 
 /**
  *
  * @author hanna
  */
-
+/**
+* Luokka vastaa pelin toteuksesta.
+*
+*/
 public class Game {
     private int[] numbers = new int[20];
     
@@ -25,10 +26,26 @@ public class Game {
         }
     }
     
+    /**
+    * Metodi hakee numerosarjasta numeron parametrina annetulta paikalta.
+    *
+    * @param   i   indeksi
+    * 
+    * @return löydetty numero
+    */
     public int getNumber(int i) {
         return numbers[i];
     }        
     
+    /**
+    * Metodi tarkistaa ensin että onko vastaus tyhjä. Jos ei, niin käydään 
+    * läpi kaikki numerot ja tarkistetaan että ovatko ne oikein.
+    *
+    * @param   n        tarkistettavien numeroiden lukumäärä
+    * @param   answer   vastaus, tarkistettavat numerot
+    * 
+    * @return true jos kaikki numerot olivat oikein, muuten false
+    */
     public boolean checkNumberSeries(int n, String answer) {
         if (answer.equals("")) {
             return false;

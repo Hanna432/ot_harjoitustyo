@@ -10,4 +10,5 @@ päivä | aika | mitä tein
 15.4 | 1 | jarin generointi
 16.4 | 2 | jarin generointi, release
 23.4 | 6 | salasana lisätty, koodikatselmointi, javaDoc
-yht | 39 | 
+24.4 | 3 | javaDoc, arkkitehtuurikuvaus, köyttöohje
+yht | 42 | 

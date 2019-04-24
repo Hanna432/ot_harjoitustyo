@@ -21,6 +21,10 @@ import javafx.stage.Stage;
  *
  * @author hanna
  */
+/**
+    * Luokka vastaa pelin graafisesta toteutuksesta.
+    *
+    */
 public class GameScene {
     private final Game game;
     private Label number = new Label("");
@@ -44,6 +48,12 @@ public class GameScene {
         this.avarage = avarage;
     }
 
+    /**
+    * Metodi muodostaa pelinäkymän
+    *
+    * 
+    * @return muodostettu näkymä
+    */
     public Scene getScene() {
         
         BorderPane componentsGame = new BorderPane();
@@ -55,6 +65,11 @@ public class GameScene {
         return sceneGame;
     }
 
+    /**
+    * Metodi näyttää numerot numerosarjassa ja odottaa sitten että käyttäjä 
+    * painaa nappia Done.
+    *
+    */
     public void play() {
         answerField.setText("");
         for (int i = 0; i < n; i++) {

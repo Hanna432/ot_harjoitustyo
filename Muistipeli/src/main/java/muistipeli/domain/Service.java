@@ -14,6 +14,11 @@ import javafx.scene.control.TextField;
  *
  * @author hanna
  */
+/**
+* Luokka vastaa sovelluslogiikasta ja erityisesti toiminnallisuuksista jotka 
+* liittyvät käyttäjiin.
+*
+*/
 public class Service {
 
     private UserDao userDao = new UserDao();
@@ -37,10 +42,26 @@ public class Service {
         return false;
     }
     
+    /**
+    * Metodi poistaa käyttäjäprofiili jonka käyttäjätunnus on 
+    * sama kuin annettu parametri
+    *
+    * @param   username   käyttäjätunnus
+    * 
+    */
     public void deleteProfile(String username) {
         userDao.delete(username);
     }
 
+    /**
+    * Metodi tarkistaa ensin että onko käyttäjätunnus olemassa ja onko 
+    * annettu salasana oikein. Jos on, niin talletetaan käyttäjä kirjautuneeksi.
+    *
+    * @param   username   käyttäjätunnus
+    * @param   password   salasana
+    * 
+    * @return true jos käyttäjä kirjauduttiin onnistuneesti, muuten false
+    */
     public boolean logIn(String username, String password) {
         User user = userDao.read(username);
         if (user != null && password.equals(user.getPassword())) {
@@ -55,6 +76,14 @@ public class Service {
         return loggedIn;
     }
     
+    /**
+    * Metodi tarkistaa ensin että onko parametrina annettu tulos parempi kuin
+    * tämänhetkisen kirjautuneen käyttäjän paras tulos. Jos on, niin 
+    * päivitetään käyttäjän paras tulos.
+    *
+    * @param   result   pelin tulos
+    * 
+    */
     public void saveResult(int result) {
         if (result > loggedIn.getHighScore()) {
             userDao.updateHighScore(loggedIn.getUsername(), result);
@@ -62,10 +91,19 @@ public class Service {
         }
     }
     
+    /**
+    * Metodi hakee tietokannasta kaikkien käyttäjien tuloksien keskiarvo.
+    * 
+    * @return löydetty keskiarvo
+    */
     public int getAvarageHighScore() {
         return userDao.getAvarageHighScore();
     }
     
+    /**
+    * Metodi asettaa service-olion muuttuja loggedIn null:iksi.
+    *
+    */
     public void logOut() {
         loggedIn = null;
     }

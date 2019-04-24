@@ -25,8 +25,18 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.layout.BorderPane;
 
+/**
+    * Luokka vastaa sovelluksen graafisesta käyttöliittymästä
+    *
+    */
 public class UI extends Application {
 
+    /**
+    * Metodi käynnistää sovelluksen graafisen käyttöliittymän parametrina 
+    * annettuun ikkunaan.
+    *
+    * @param   window   sovelluksen käyttämä ikkuna
+    */
     @Override
     public void start(Stage window) {
         Service service = new Service();
@@ -160,11 +170,19 @@ public class UI extends Application {
 
     }
 
+    /**
+    * Sovelluksen main-metodi mistä sovellus käynnistyy
+    *
+    */
     public static void main(String[] args) {
         makeDatabase();
         launch(UI.class);
     }
 
+    /**
+    * Metodi alustaa tietokannan
+    *
+    */
     public static void makeDatabase() {
 
         try (Connection conn = DriverManager.getConnection("jdbc:sqlite:muistipeli.db")) {

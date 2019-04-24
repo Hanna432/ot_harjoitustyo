@@ -9,6 +9,10 @@ package muistipeli.domain;
  *
  * @author hanna
  */
+/**
+* Luokka vastaa sovelluksen käyttäjistä.
+*
+*/
 public class User {
     private String username;
     private String password;
