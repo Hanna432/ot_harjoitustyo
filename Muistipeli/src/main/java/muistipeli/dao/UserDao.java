@@ -13,6 +13,10 @@ import muistipeli.domain.User;
 import java.sql.*;
 import java.util.ArrayList;
 
+/**
+* Luokka vastaa tiedon pysyväistallennuksesta.
+* 
+*/
 public class UserDao {
     
     /**

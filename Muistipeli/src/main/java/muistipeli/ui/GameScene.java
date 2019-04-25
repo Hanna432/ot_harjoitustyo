@@ -22,9 +22,9 @@ import javafx.stage.Stage;
  * @author hanna
  */
 /**
-    * Luokka vastaa pelin graafisesta toteutuksesta.
-    *
-    */
+* Luokka vastaa pelin graafisesta toteutuksesta.
+*
+*/
 public class GameScene {
     private final Game game;
     private Label number = new Label("");
