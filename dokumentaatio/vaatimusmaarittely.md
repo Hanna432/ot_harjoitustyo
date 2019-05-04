@@ -10,13 +10,14 @@ rekisteröityä niin että tulokset voidaan tallentaa.
 
 ![kuva](https://github.com/Hanna432/ot_harjoitustyo/blob/master/laskarit/kuvat/sovelluskuva.jpg)
 
-## Perusversion toiminnallisuus
+## Toiminnallisuus
 
 ### Ennen kirjautumista
 
 * käyttäjä voi rekisteröityä järjestelmään
-  * siihen tarvitaan käyttäjätunnus
+  * siihen tarvitaan käyttäjätunnus ja salasana
 * käyttäjä voi kirjautua sisään
+* käyttäjä voi myös jatkaa kirjautumatta
 
 ### Kirjautumisen jälkeen
 
@@ -28,20 +29,12 @@ sarjan loppuun on ilmestynyt uusi luku. Näin sarja tulee koko ajan pitempi.
 Peli loppuu kun pelaaja painaa väärä numeroa.
 * käyttäjä voi nähdä tilastoja
   * oma paras tulos
-  * paras tulos kaikkien käyttäjien joukossa
+  * kaikkien käyttäjien tulosten keskiarvo
+* käyttäjä voi vahtaa salasanansa ja poistaa käyttäjäprofiilinsa
 * käyttäjä voi kirjautua ulos
 
-## Jatkokehitysideoita
+### Jos jatkat kirjautumatta
 
-Kun perusversio on toteutettu se voidaan täydentää seuraavalla 
-toiminnallisuuksilla:
-
-* kirjautumiseen tarvitaan myös salasana
-* mahdollisuus pelata myös kirjautumatta
-* erilaisia muistipelejä
-* mahdollisuus vaihtaa käyttöliittymän kieltä
-* enemmän tilastoja
-  * lista parhaista käyttäjistä ja heidän tuloksista
-  * tietoa siitä kuinka hyvin käyttäjä pärjää verrattuna kaikkien käyttäjien 
-keskiarvoa
-* käyttäjätunnuksen poisto
+* käyttäjä voi pelata pelin
+* käyttäjä voi nähdä kaikkien käyttäjien tulosten keskiarvo
+* käyttäjä voi kirjautua ulos
