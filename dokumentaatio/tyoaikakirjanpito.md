@@ -13,5 +13,5 @@ päivä | aika | mitä tein
 24.4 | 3 | javaDoc, arkkitehtuurikuvaus, köyttöohje
 25.4 | 2 | arkkitehtuurikuvaus, release
 30.4 | 1 | salasanan vahtaminen, käyttäjän postaminen
-4.5.| 1 | dokumentaatio
-yht | 44 | 
+4.5.| 2 | dokumentaatio
+yht | 47 | 
