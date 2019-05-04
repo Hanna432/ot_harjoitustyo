@@ -48,6 +48,10 @@ User (username, password, highscore)
 
 ![kuva](https://github.com/Hanna432/ot_harjoitustyo/blob/master/laskarit/kuvat/rekisteroituminen.jpg)
 
+### Pelin pelaaminen
+
+![kuva](https://github.com/Hanna432/ot_harjoitustyo/blob/master/laskarit/kuvat/pelinpelaaminen.jpg)
+
 ## Ohjelman rakenteeseen jääneet heikkoudet
 
 Melkein koko käyttöliittymä on toteutettu luokassa UI. Olisi ollut parempi jakaa UI-luokka eri luokkiin 
