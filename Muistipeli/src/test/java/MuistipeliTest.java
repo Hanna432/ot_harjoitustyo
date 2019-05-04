@@ -5,6 +5,7 @@
  */
 
 
+import muistipeli.dao.UserDao;
 import muistipeli.domain.Game;
 import muistipeli.domain.Service;
 import muistipeli.domain.User;
@@ -23,16 +24,19 @@ public class MuistipeliTest {
     
     User user;
     Service service;
+    UserDao userDao;
     
     @Before
     public void setUp() {
         user = new User("Liisa", "l", 5);
         service = new Service();
         service.createProfile("testUser", "p");
+        userDao = new UserDao();
     }
     
     @After
     public void tearDown() {
+        service.deleteProfile("testUser");
         service.deleteProfile("testUser2");
     }
     
@@ -52,7 +56,7 @@ public class MuistipeliTest {
     }
     
     @Test
-    public void createProfileWhenUsernameDoNotExist() {
+    public void createProfileWhenUsernameDoesNotExist() {
         assertEquals(true, service.createProfile("testUser2", "p2"));
     }
     
@@ -67,7 +71,7 @@ public class MuistipeliTest {
     }
     
     @Test
-    public void logInWhenUsernameDoNotExist() {
+    public void logInWhenUsernameDoesNotExist() {
         assertEquals(false, service.logIn("testUser3", "p"));
     }
     
@@ -79,7 +83,7 @@ public class MuistipeliTest {
     
     @Test
     public void logOutSetsLoggedInToNull() {
-        service.logIn("Liisa", "l");
+        service.logIn("testUser", "p");
         service.logOut();
         assertEquals(null, service.getLoggedIn());
     }
@@ -96,6 +100,28 @@ public class MuistipeliTest {
         Game game = new Game();
         String answer = "" + 0;
         assertEquals(false, game.checkNumberSeries(3, answer));
+    }
+    
+    @Test
+    public void saveResultUpdatesHighscoreWhenNewHighscore() {
+        service.logIn("testUser", "p");
+        service.saveResult(3);
+        assertEquals(3, userDao.read("testUser").getHighScore());
+    }
+    
+    @Test
+    public void saveResultDoesNotUpdateHighscoreWhenNotNewHighscore() {
+        service.logIn("testUser", "p");
+        service.saveResult(5);
+        service.saveResult(3);
+        assertEquals(5, userDao.read("testUser").getHighScore());
+    }
+    
+    @Test
+    public void changePassword() {
+        service.logIn("testUser", "p");
+        service.changePassword("p3");
+        assertEquals("p3", service.getLoggedIn().getPassword());
     }
 
     

@@ -135,4 +135,25 @@ public class UserDao {
         }
         return 100;
     }
+    
+    /**
+    * Metodi muodostaa yhteyden tietokantaan ja vaihtaa parametrina annetun
+    * käyttäjän salasana.
+    *
+    * @param   u   käyttäjätunnus
+    * @param   p   uusi salasana
+    * 
+    */
+    public void changePassword(String u, String p) {
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:sqlite:muistipeli.db", "sa", "");
+            PreparedStatement statement = connection.prepareStatement("UPDATE User SET password = ? WHERE username = ?");
+            statement.setString(1, p);
+            statement.setString(2, u);
+            statement.executeUpdate();
+            connection.close();
+        } catch (SQLException e) {
+            System.out.println("Database failure " + e.getMessage());
+        }
+    }
 }

@@ -41,17 +41,6 @@ public class Service {
         
         return false;
     }
-    
-    /**
-    * Metodi poistaa käyttäjäprofiili jonka käyttäjätunnus on 
-    * sama kuin annettu parametri
-    *
-    * @param   username   käyttäjätunnus
-    * 
-    */
-    public void deleteProfile(String username) {
-        userDao.delete(username);
-    }
 
     /**
     * Metodi tarkistaa ensin että onko käyttäjätunnus olemassa ja onko 
@@ -106,6 +95,28 @@ public class Service {
     */
     public void logOut() {
         loggedIn = null;
+    }
+    
+    /**
+    * Metodi vaihtaa käyttäjän salasana parametrina annetulle salasanalle.
+    *
+    * @param   password   uusi salasana
+    * 
+    */
+    public void changePassword(String password) {
+        userDao.changePassword(loggedIn.getUsername(), password);
+        loggedIn.setPassword(password);
+    }
+    
+    /**
+    * Metodi poistaa käyttäjäprofiili jonka käyttäjätunnus on 
+    * sama kuin annettu parametri
+    *
+    * @param   username   käyttäjätunnus
+    * 
+    */
+    public void deleteProfile(String username) {
+        userDao.delete(username);
     }
     
 }

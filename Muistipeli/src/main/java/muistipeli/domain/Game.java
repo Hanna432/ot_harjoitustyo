@@ -47,7 +47,7 @@ public class Game {
     * @return true jos kaikki numerot olivat oikein, muuten false
     */
     public boolean checkNumberSeries(int n, String answer) {
-        if (answer.equals("")) {
+        if (answer.length() != n) {
             return false;
         }
         String[] pieces = answer.split("");

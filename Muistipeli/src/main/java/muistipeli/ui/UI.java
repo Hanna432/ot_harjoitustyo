@@ -90,24 +90,28 @@ public class UI extends Application {
         componentsReg.getChildren().add(registerReg);
 
         Scene reg = new Scene(componentsReg);
+        
 
         Label usernameIn = new Label("");
         Button logOut = new Button("Log out");
         Button play = new Button("Play");
+        Button settings = new Button("Settings");
         Label result = new Label("");
         Label highScore = new Label("");
         Label avarage = new Label("");
-        usernameIn.setPadding(new Insets(0, 2, 2, 2));
-        logOut.setPadding(new Insets(5, 5, 5, 5));
-        highScore.setPadding(new Insets(2, 2, 2, 2));
-        avarage.setPadding(new Insets(2, 2, 6, 2));
+//        usernameIn.setPadding(new Insets(0, 2, 2, 2));
+//        logOut.setPadding(new Insets(5, 5, 5, 5));
+//        highScore.setPadding(new Insets(2, 2, 2, 2));
+//        avarage.setPadding(new Insets(2, 2, 6, 2));
 
         VBox menu = new VBox();
         menu.setPadding(new Insets(0, 0, 0, 30));
+        menu.setSpacing(5);
 
         menu.getChildren().add(usernameIn);
         menu.getChildren().add(highScore);
         menu.getChildren().add(avarage);
+        menu.getChildren().add(settings);
         menu.getChildren().add(logOut);
 
         BorderPane componentsIn = new BorderPane();
@@ -117,6 +121,39 @@ public class UI extends Application {
         componentsIn.setRight(menu);
 
         Scene in = new Scene(componentsIn);
+        
+        
+        Button changePassword = new Button("Change password");
+        Button deleteProfile = new Button("Delete profile");
+        Button backFromSettings = new Button("Back");
+        
+        VBox settingsMenu = new VBox();
+        settingsMenu.setSpacing(5);
+        settingsMenu.setPadding(new Insets(10, 10, 10, 10));
+        
+        settingsMenu.getChildren().add(backFromSettings);
+        settingsMenu.getChildren().add(changePassword);
+        settingsMenu.getChildren().add(deleteProfile);
+        
+        Scene settingsScene = new Scene(settingsMenu);
+        
+        
+        Label newPasswordLabel = new Label("New password");
+        TextField newPassword = new TextField();
+        Button changePasswordNow = new Button("Change password");
+        Button backToSettings = new Button("Back");
+        
+        VBox changePasswordMenu = new VBox();
+        changePasswordMenu.setSpacing(5);
+        changePasswordMenu.setPadding(new Insets(10, 10, 10, 10));
+        
+        changePasswordMenu.getChildren().add(newPasswordLabel);
+        changePasswordMenu.getChildren().add(newPassword);
+        changePasswordMenu.getChildren().add(changePasswordNow);
+        changePasswordMenu.getChildren().add(backToSettings);
+        
+        Scene changePasswordScene = new Scene(changePasswordMenu);
+        
 
         register.setOnAction((event) -> {
             username.setText("");
@@ -134,6 +171,7 @@ public class UI extends Application {
         logIn.setOnAction((event) -> {
             if (service.logIn(username.getText(), password.getText())) {
 
+                settings.setVisible(true);
                 usernameIn.setText("Username: " + service.getLoggedIn().getUsername());
                 highScore.setText("Highscore: " + service.getLoggedIn().getHighScore());
                 avarage.setText("In avarage players' \n  highscore is: " + service.getAvarageHighScore());
@@ -145,6 +183,7 @@ public class UI extends Application {
         });
         
         playAsGuest.setOnAction((event) -> {
+            settings.setVisible(false);
             usernameIn.setText("");
             highScore.setText("");
             avarage.setText("In avarage players' \n  highscore is: " + service.getAvarageHighScore());
@@ -163,6 +202,34 @@ public class UI extends Application {
             password.setText("");
             result.setText("");
             window.setScene(home);
+        });
+        
+        settings.setOnAction((event) -> {
+            window.setScene(settingsScene);
+        });
+        
+        changePassword.setOnAction((event) -> {
+            newPassword.setText("");
+            window.setScene(changePasswordScene);
+        });
+        
+        changePasswordNow.setOnAction((event) -> {
+            service.changePassword(newPassword.getText());
+            window.setScene(settingsScene);
+            
+        });
+        
+        backToSettings.setOnAction((event) -> {
+            window.setScene(settingsScene);
+        });
+        
+        deleteProfile.setOnAction((event) -> {
+            service.deleteProfile(service.getLoggedIn().getUsername());
+            window.setScene(home);
+        });
+        
+        backFromSettings.setOnAction((event) -> {
+            window.setScene(in);
         });
 
         window.setScene(home);

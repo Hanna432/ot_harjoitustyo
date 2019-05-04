@@ -32,6 +32,10 @@ public class User {
         return password;
     }
     
+    public void setPassword(String p) {
+        password = p;
+    }
+    
     public int getHighScore() {
         return highScore;
     }
