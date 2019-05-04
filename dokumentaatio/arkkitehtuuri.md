@@ -10,12 +10,14 @@ Pakkaus muistipeli.ui sisältää ohjelman graafisen toteutuksen, eli sekä käy
 
 ## Käyttöliittymä
 
-Käyttöliittymä koostuu neljästä eri näkymästä:
+Käyttöliittymä koostuu kuudesta eri näkymästä:
 
 - kirjautuminen
 - rekisteröityminen
 - näkymä kirjautumisen jälkeen
 - peli
+- asetukset
+- salasanan vaihtaminen
 
 Näkymät ovat toteutettuja scene-olioina. Pelin näkymä on toteutettu luokassa muistipeli.ui.GameScene ja muut näkymät ovat toteutettuja luokassa muistipeli.ui.UI.
 
@@ -31,6 +33,11 @@ Seuraava luokka/pakkauskaavio kuvaa ohjelman eri osien suhdetta:
 
 ## Tietojen pysyväistallennus
 
+Tieto käyttäjistä tallennetaan tietokantaan luokan UserDao avulla. Tieto tallennetaan seuraavaan 
+tietokantatauluun:
+
+User (username, password, highscore)
+
 ## Päätoiminnallisuudet
 
 ### Kirjaantuminen
@@ -40,3 +47,8 @@ Seuraava luokka/pakkauskaavio kuvaa ohjelman eri osien suhdetta:
 ### Rekisteröityminen
 
 ![kuva](https://github.com/Hanna432/ot_harjoitustyo/blob/master/laskarit/kuvat/rekisteroituminen.jpg)
+
+## Ohjelman rakenteeseen jääneet heikkoudet
+
+Melkein koko käyttöliittymä on toteutettu luokassa UI. Olisi ollut parempi jakaa UI-luokka eri luokkiin 
+niin että jokaisella luokalla olisi selkeä vastuualue.
