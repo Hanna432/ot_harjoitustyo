@@ -1,12 +1,21 @@
 # Käyttöohje
 
+Lataa tiedosto muistipeli.jar
+
+## Ohjelman käynnistäminen
+
+Ohjelma käynnistetään komennolla
+
+`java -jar muistipeli.jar`
+
 ## Kirjautuminen
 
 Sovellus käynnistyy kirjautumisnäkymään.
 
 ![kuva](https://github.com/Hanna432/ot_harjoitustyo/blob/master/laskarit/kuvat/kirjautumisnakyma.png)
 
-Kirjautuminen onnistuu kun syötetään olemassaoleva käyttäjätunnus ja siihen kuuluva salasana ja painetaan Log in.
+Kirjautuminen onnistuu kun syötetään olemassaoleva käyttäjätunnus ja siihen kuuluva salasana ja painetaan Log in. 
+On myös mahdollista jatkaa kirjautumatta painamalla "Play as a guest".
 
 ## Rekisteröityminen
 
@@ -22,12 +31,24 @@ Kun painetaan nappia "Log in" niin siirretään toiseen näkymään missä on ma
 
 ![kuva](https://github.com/Hanna432/ot_harjoitustyo/blob/master/laskarit/kuvat/kirjautumisenjalkeen.png)
 
-Jos kirjautumisnäkymässä painetaan nappia "Play as a guest" "Log in"-napin sijaan niin siirretään samaan näkymään mutta nyt käyttäjätunnus ja tietoa omasta parasta tuloksesta puuttuu.
+Jos kirjautumisnäkymässä painetaan nappia "Play as a guest" "Log in"-napin sijaan niin siirretään samaan näkymään mutta nyt käyttäjätunnus, asetukset ja tietoa omasta parasta tuloksesta puuttuu.
 
 ## Pelin pelaaminen
 
-Kun painetaan nappian Play siirretään pelinäkymään.
+Kun painetaan nappia Play siirretään pelinäkymään.
 
 ![kuva](https://github.com/Hanna432/ot_harjoitustyo/blob/master/laskarit/kuvat/pelinakyma.png)
 
 Peli pelataan niin että vastauskentän yläpuolella ilmestyy muutama lukua mutta vain yksi luku kerrallaan näkyy. Tämän jälkeen käyttäjän tehtävä on syötä luvut oikeassa järjestyksessä ilman välilyöntejä tai muuta sellaista vastauskenttään ja sitten painaa nappia Done. Jos numerot ovat oikein niin sama numerosarja esiintyy uudestaan mutta nyt sarja on vähän pitempi. Näin peli jatkuu kunnes käyttäjä syöttää väärää numeroa. Pelin jälkeen siirretään takaisin käyttäjän omalle sivulle.
+
+## Asetukset
+
+Jos kirjautumisen jälkeen painetaan nappia Settings niin siirretään näkymään missä on mahdollista vaihtaa salasanansa ja poistaa käyttäjäprofiilinsa.
+
+![kuva](https://github.com/Hanna432/ot_harjoitustyo/blob/master/laskarit/kuvat/asetusnakyma.png)
+
+Kun painetaan nappia "Delete profile" käyttäjäprofiili poistetaan ja siirretään takaisin kirjautumisnäkymään. Kun painetaan nappia "Change password" sirretään näkymään missä voidaan syöttää uusi salasana.
+
+![kuva](https://github.com/Hanna432/ot_harjoitustyo/blob/master/laskarit/kuvat/salasanavaihto.png)
+
+Kun siellä painetaan "Change password"-nappia salasana vaihdetaan ja siirretään takaisin asetusnäkymään.
