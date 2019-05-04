@@ -4,11 +4,13 @@ Sovelluksen avulla käyttäjä voi testata lähimuistinsa yrittämällä muistaa
 
 ## Dokumentaatio
 
+[Käyttöohje](https://github.com/Hanna432/ot_harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)
+
 [Vaatimusmäärittely](https://github.com/Hanna432/ot_harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
 
 [Arkkitehtuurikuvaus](https://github.com/Hanna432/ot_harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
 
-[Käyttöohje](https://github.com/Hanna432/ot_harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)
+[Testausdokumentti](https://github.com/Hanna432/ot_harjoitustyo/blob/master/dokumentaatio/testausdokumentti.md)
 
 [Työaikakirjanpito](https://github.com/Hanna432/ot_harjoitustyo/blob/master/dokumentaatio/tyoaikakirjanpito.md)
 
