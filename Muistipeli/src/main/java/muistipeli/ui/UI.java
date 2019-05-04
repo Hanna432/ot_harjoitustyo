@@ -85,6 +85,7 @@ public class UI extends Application {
 
         VBox componentsReg = new VBox();
         componentsReg.setSpacing(20);
+        componentsReg.setPadding(new Insets(10, 10, 10, 10));
         componentsReg.getChildren().add(componentsUsernameReg);
         componentsReg.getChildren().add(componentsPasswordReg);
         componentsReg.getChildren().add(registerReg);
