@@ -12,4 +12,6 @@ päivä | aika | mitä tein
 23.4 | 6 | salasana lisätty, koodikatselmointi, javaDoc
 24.4 | 3 | javaDoc, arkkitehtuurikuvaus, köyttöohje
 25.4 | 2 | arkkitehtuurikuvaus, release
+30.4 | 1 | salasanan vahtaminen, käyttäjän postaminen
+4.5.| 1 | dokumentaatio
 yht | 44 | 
