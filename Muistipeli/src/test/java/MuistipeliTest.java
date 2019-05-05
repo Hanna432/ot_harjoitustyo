@@ -10,9 +10,7 @@ import muistipeli.domain.Game;
 import muistipeli.domain.Service;
 import muistipeli.domain.User;
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

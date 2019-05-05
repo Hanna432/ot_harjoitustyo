@@ -9,7 +9,6 @@ package muistipeli.ui;
  *
  * @author hanna
  */
-import muistipeli.domain.Game;
 import muistipeli.domain.Service;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -100,10 +99,6 @@ public class UI extends Application {
         Label result = new Label("");
         Label highScore = new Label("");
         Label avarage = new Label("");
-//        usernameIn.setPadding(new Insets(0, 2, 2, 2));
-//        logOut.setPadding(new Insets(5, 5, 5, 5));
-//        highScore.setPadding(new Insets(2, 2, 2, 2));
-//        avarage.setPadding(new Insets(2, 2, 6, 2));
 
         VBox menu = new VBox();
         menu.setPadding(new Insets(0, 0, 0, 30));
@@ -254,7 +249,6 @@ public class UI extends Application {
     public static void makeDatabase() {
 
         try (Connection conn = DriverManager.getConnection("jdbc:sqlite:muistipeli.db")) {
-//            conn.prepareStatement("DROP TABLE IF EXISTS User;").executeUpdate();
             conn.prepareStatement("CREATE TABLE IF NOT EXISTS User (username VARCHAR(30) PRIMARY KEY, password VARCHAR(20), highScore INTEGER);")
                     .executeUpdate();
         } catch (SQLException e) {

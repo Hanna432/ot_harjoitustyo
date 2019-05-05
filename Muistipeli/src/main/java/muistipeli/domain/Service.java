@@ -6,9 +6,6 @@
 package muistipeli.domain;
 
 import muistipeli.dao.UserDao;
-import java.sql.SQLException;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 
 /**
  *
