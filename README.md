@@ -20,6 +20,8 @@ Sovelluksen avulla käyttäjä voi testata lähimuistinsa yrittämällä muistaa
 
 [Viikko 6](https://github.com/Hanna432/ot_harjoitustyo/releases/tag/viikko6)
 
+[Loppupalautus](https://github.com/Hanna432/ot_harjoitustyo/releases/tag/viikko7)
+
 ## Komentorivitoiminnot
 
 ### Testaus
