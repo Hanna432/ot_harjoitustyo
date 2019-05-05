@@ -1,6 +1,6 @@
 # Käyttöohje
 
-Lataa tiedosto muistipeli.jar
+Lataa tiedosto [muistipeli.jar](https://github.com/Hanna432/ot_harjoitustyo/releases/tag/viikko7)
 
 ## Ohjelman käynnistäminen
 
